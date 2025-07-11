@@ -1,0 +1,21 @@
+Django>=4.2,<5.0
+psycopg2-binary>=2.9
+Pillow
+django-cors-headers
+django-filter
+djangorestframework
+markdown
+PyJWT
+python-dotenv
+django-rest-framework-simplejwt
+gunicorn
+django-cleanup
+
+# Optional, for production static/media file serving
+whitenoise
+
+# For image/file uploads
+boto3
+
+# For rich text if used
+django-ckeditor
