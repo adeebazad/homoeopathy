@@ -23,10 +23,10 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include([
-        path('accounts/', include('accounts.accounts.urls')),
-        path('blog/', include('blog.blog.urls')),
-        path('appointments/', include('appointments.appointments.urls')),
-        path('patients/', include('patients.patients.urls')),
-        path('', include('api.api.urls')),
+        path('accounts/', include('accounts.urls')),
+        path('blog/', include('blog.urls')),
+        path('appointments/', include('appointments.urls')),
+        path('patients/', include('patients.urls')),
+        path('', include('api.urls')),
     ])),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

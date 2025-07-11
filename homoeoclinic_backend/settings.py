@@ -28,7 +28,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -42,11 +41,11 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt.token_blacklist',
     'corsheaders',
     'django_filters',
-    'accounts.accounts.apps.AccountsConfig',
-    'blog.blog.apps.BlogConfig',
-    'appointments.appointments.apps.AppointmentsConfig',
-    'patients.patients.apps.PatientsConfig',
-    'api.api.apps.ApiConfig',
+    'accounts.apps.AccountsConfig',
+    'blog.apps.BlogConfig',
+    'appointments.apps.AppointmentsConfig',
+    'patients.apps.PatientsConfig',
+    'api.apps.ApiConfig',
 ]
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
@@ -128,7 +127,7 @@ CORS_EXPOSE_HEADERS = [
     'X-CSRFToken',
     'Authorization'
 ]
-CORS_ALLOW_ALL_ORIGINS = True  # More secure
+CORS_ALLOW_ALL_ORIGINS = True  # For local development
 CORS_PREFLIGHT_MAX_AGE = 86400
 CORS_ALLOW_METHODS = [
     'DELETE',
@@ -157,7 +156,7 @@ CSRF_TRUSTED_ORIGINS = [
     "http://127.0.0.1:3000",
 ]
 
-ROOT_URLCONF = 'homoeoclinic_backend.homoeoclinic_backend.urls'
+ROOT_URLCONF = 'homoeoclinic_backend.urls'
 
 TEMPLATES = [
     {
@@ -174,7 +173,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'homoeoclinic_backend.homoeoclinic_backend.wsgi.application'
+WSGI_APPLICATION = 'homoeoclinic_backend.wsgi.application'
 
 
 # Database
@@ -182,10 +181,8 @@ WSGI_APPLICATION = 'homoeoclinic_backend.homoeoclinic_backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.oracle',
-        'NAME': '(description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.ap-mumbai-1.oraclecloud.com))(connect_data=(service_name=g17250c9acce4ce_sxuc056m06itroa8_high.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))',
-        'USER': 'ADMIN',
-        'PASSWORD': 'RussAdeeb@123',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
